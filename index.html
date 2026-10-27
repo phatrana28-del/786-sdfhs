@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PC ZONE | KEY GENERATOR</title>
+
+<style>
+:root {
+    --red: #ff2525;
+    --dark: #090909;
+    --card: #151515;
+    --green: #00ff77;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--dark);
+    color: white;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+}
+
+button, input, select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+header {
+    padding: 18px 12px;
+    text-align: center;
+    background: #101010;
+    border-bottom: 2px solid var(--red);
+    box-shadow: 0 3px 20px #ff252522;
+}
+
+.logo {
+    color: var(--red);
+    font-weight: 900;
+    font-size: 27px;
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    color: #aaa;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.container {
+    width: min(700px, 94%);
+    margin: 25px auto;
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid #333;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 18px;
+    box-shadow: 0 8px 25px #0008;
+}
+
+h2 {
+    margin-top: 0;
+    font-size: 20px;
+}
+
+.red {
+    color: var(--red);
+}
+
+label {
+    display: block;
+    color: #ddd;
+    margin: 14px 0 7px;
+    font-size: 14px;
+}
+
+input, select {
+    width: 100%;
+    padding: 13px;
+    border-radius: 8px;
+    border: 1px solid #444;
+    background: #080808;
+    color: white;
+    outline: none;
+}
+
+input:focus, select:focus {
+    border-color: var(--red);
+}
+
+.btn {
+    border: 0;
+    border-radius: 8px;
+    padding: 13px;
+    font-weight: bold;
+    transition: .2s;
+}
+
+.btn:hover {
+    filter: brightness(1.15);
+    transform: translateY(-1px);
+}
+
+.btn-red {
+    background: var(--red);
+    color: white;
+}
+
+.btn-dark {
+    background: #292929;
+    color: white;
+    border: 1px solid #444;
+}
+
+.btn-green {
+    background: #00b95a;
+    color: white;
+}
+
+.btn-full {
+    width: 100%;
+    margin-top: 15px;
+}
+
+.btn-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+}
+
+.btn-row .btn {
+    flex: 1;
+    min-width: 110px;
+}
+
+#loginPage {
+    max-width: 430px;
+    margin: 55px auto;
+    padding: 20px;
+}
+
+.login-card {
+    text-align: center;
+    background: #141414;
+    border: 1px solid #393939;
+    border-top: 3px solid var(--red);
+    border-radius: 16px;
+    padding: 25px 20px;
+    box-shadow: 0 0 30px #ff252515;
+}
+
+.lock-icon {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+#loginMessage {
+    margin-top: 17px;
+    min-height: 28px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.spinner {
+    width: 35px;
+    height: 35px;
+    border: 4px solid #333;
+    border-top-color: var(--red);
+    border-radius: 50%;
+    animation: spin .8s linear infinite;
+    margin: 18px auto;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.success-check {
+    color: var(--green);
+    font-size: 64px;
+    font-weight: bold;
+    animation: pop .4s ease;
+}
+
+@keyframes pop {
+    from { transform: scale(.3); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+#dashboard {
+    display: none;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.stat {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #333;
+    background: #151515;
+    border-radius: 12px;
+}
+
+.stat strong {
+    display: block;
+    color: var(--red);
+    font-size: 26px;
+    margin-bottom: 5px;
+}
+
+.stat span {
+    color: #aaa;
+    font-size: 12px;
+}
+
+.key-item {
+    background: #090909;
+    border: 1px solid #303030;
+    border-radius: 10px;
+    padding: 13px;
+    margin-top: 10px;
+    overflow-wrap: anywhere;
+}
+
+.key-code {
+    font-family: monospace;
+    color: #ff5252;
+    font-size: 15px;
+    font-weight: bold;
+    overflow-wrap: anywhere;
+}
+
+.key-meta {
+    color: #aaa;
+    font-size: 12px;
+    margin-top: 8px;
+    line-height: 1.7;
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 5px;
+    background: #173b27;
+    color: var(--green);
+    font-size: 11px;
+    margin-top: 7px;
+}
+
+.badge.off {
+    background: #401919;
+    color: #ff7777;
+}
+
+.empty {
+    text-align: center;
+    color: #777;
+    padding: 22px 0;
+}
+
+.small-note {
+    color: #888;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+footer {
+    text-align: center;
+    color: #666;
+    padding: 20px 10px 30px;
+    font-size: 12px;
+}
+
+@media (max-width: 400px) {
+    .card {
+        padding: 15px;
+    }
+
+    .logo {
+        font-size: 23px;
+    }
+
+    .btn-row .btn {
+        min-width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">⚡ PC ZONE</div>
+    <div class="subtitle">KEY GENERATOR • ADMIN CONTROL PANEL</div>
+</header>
+
+<!-- หน้าเข้าสู่ระบบ -->
+<section id="loginPage">
+    <div class="login-card">
+        <div class="lock-icon">🔐</div>
+        <h2>เข้าสู่ระบบ <span class="red">แอดมิน</span></h2>
+        <p class="small-note">กรอกรหัสผ่านเพื่อเข้าสู่หน้าสร้างคีย์อัตโนมัติ</p>
+
+        <form id="loginForm">
+            <label for="adminPassword">รหัสผ่านแอดมิน</label>
+            <input
+                type="password"
+                id="adminPassword"
+                placeholder="กรอกรหัสผ่าน"
+                autocomplete="current-password"
+                required
+            >
+
+            <button class="btn btn-red btn-full" id="loginButton" type="submit">
+                ยืนยันเข้าสู่ระบบ
+            </button>
+        </form>
+
+        <div id="loginMessage" aria-live="polite"></div>
+    </div>
+</section>
+
+<!-- หน้าสร้างคีย์ -->
+<main id="dashboard" class="container">
+
+    <div class="card">
+        <h2>⚡ ยินดีต้อนรับ <span class="red">ADMIN</span></h2>
+        <p class="small-note">
+            ระบบสร้างคีย์อัตโนมัติ PC ZONE
+        </p>
+        <button class="btn btn-dark" id="logoutButton">ออกจากระบบ</button>
+    </div>
+
+    <div class="stats">
+        <div class="stat">
+            <strong id="totalKeys">0</strong>
+            <span>คีย์ทั้งหมด</span>
+        </div>
+        <div class="stat">
+            <strong id="activeKeys">0</strong>
+            <span>คีย์ที่เปิดใช้งาน</span>
+        </div>
+    </div>
+
+    <section class="card">
+        <h2>🔑 สร้างคีย์อัตโนมัติ</h2>
+
+        <label for="keyCount">จำนวนคีย์ที่ต้องการ</label>
+        <input type="number" id="keyCount" value="1" min="1" max="500">
+
+        <label for="keyDuration">ระยะเวลาคีย์</label>
+        <select id="keyDuration">
+            <option value="1">1 วัน</option>
+            <option value="2">2 วัน</option>
+            <option value="3">3 วัน</option>
+            <option value="5">5 วัน</option>
+            <option value="7" selected>7 วัน</option>
+            <option value="10">10 วัน</option>
+            <option value="14">14 วัน</option>
+            <option value="15">15 วัน</option>
+            <option value="20">20 วัน</option>
+            <option value="30">30 วัน</option>
+        </select>
+
+        <button class="btn btn-red btn-full" id="generateButton">
+            ⚡ สร้างคีย์อัตโนมัติ
+        </button>
+
+        <div class="btn-row">
+            <button class="btn btn-dark" id="copyAllButton">📋 คัดลอกคีย์ทั้งหมด</button>
+            <button class="btn btn-dark" id="downloadButton">📥 ดาวน์โหลด TXT</button>
+        </div>
+
+        <p id="generatorMessage" class="small-note" aria-live="polite"></p>
+    </section>
+
+    <section class="card">
+        <h2>📦 รายการคีย์ทั้งหมด</h2>
+
+        <input
+            type="search"
+            id="searchKey"
+            placeholder="ค้นหาคีย์..."
+            aria-label="ค้นหาคีย์"
+        >
+
+        <div class="btn-row">
+            <button class="btn btn-dark" id="filterAll">ทั้งหมด</button>
+            <button class="btn btn-dark" id="filterActive">ใช้งานได้</button>
+            <button class="btn btn-dark" id="filterDisabled">ปิดใช้งาน</button>
+        </div>
+
+        <div id="keyList"></div>
+    </section>
+
+    <section class="card">
+        <h2>⚙️ จัดการข้อมูล</h2>
+        <p class="small-note">
+            ข้อมูลคีย์บันทึกไว้ในเบราว์เซอร์ของอุปกรณ์นี้
+            การล้างข้อมูลเว็บไซต์หรือเปลี่ยนอุปกรณ์อาจทำให้รายการคีย์หายไป
+        </p>
+        <button class="btn btn-dark" id="exportBackupButton">
+            💾 สำรองข้อมูล JSON
+        </button>
+        <button class="btn btn-red" id="clearAllButton">
+            ลบคีย์ทั้งหมด
+        </button>
+    </section>
+</main>
+
+<footer>
+    PC ZONE KEY GENERATOR • เวอร์ชัน 1.0
+</footer>
+
+<script>
+"use strict";
+
+/*
+ * ตัวอย่างนี้เป็นระบบสาธิตฝั่งเบราว์เซอร์
+ * ไม่ใช่ระบบล็อกอินที่ปลอดภัยสำหรับข้อมูลจริง
+ */
+const ADMIN_PASSWORD = "we123";
+
+const STORAGE_KEY = "pczone_key_generator_v1";
+const SESSION_KEY = "pczone_admin_logged_in";
+
+const $ = id => document.getElementById(id);
+
+let keys = loadKeys();
+let currentFilter = "all";
+
+function loadKeys() {
+    try {
+        const data = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+        return Array.isArray(data) ? data : [];
+    } catch {
+        return [];
+    }
+}
+
+function saveKeys() {
+    try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(keys));
+        updateStats();
+        renderKeys();
+        return true;
+    } catch (error) {
+        alert("บันทึกข้อมูลไม่สำเร็จ พื้นที่จัดเก็บอาจเต็ม");
+        return false;
+    }
+}
+
+function showLogin() {
+    $("loginPage").style.display = "block";
+    $("dashboard").style.display = "none";
+}
+
+function showDashboard() {
+    $("loginPage").style.display = "none";
+    $("dashboard").style.display = "block";
+    updateStats();
+    renderKeys();
+}
+
+$("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const password = $("adminPassword").value;
+    const message = $("loginMessage");
+    const button = $("loginButton");
+    const input = $("adminPassword");
+
+    if (password !== ADMIN_PASSWORD) {
+        message.style.color = "#ff3333";
+        message.textContent = "❌ รหัสผ่านไม่ถูกต้อง";
+        input.value = "";
+        input.focus();
+        return;
+    }
+
+    button.disabled = true;
+    input.disabled = true;
+    message.innerHTML =
+        '<div class="spinner"></div><span style="color:#ffcc00">กำลังตรวจสอบ กรุณารอ 5 วินาที...</span>';
+
+    // รอ 5 วินาทีหลังกรอกรหัสถูกต้อง
+    setTimeout(function() {
+        message.innerHTML =
+            '<div class="success-check">✔</div>' +
+            '<div style="color:#00ff77;font-weight:bold">เข้าสู่ระบบสำเร็จ!</div>';
+
+        try {
+            sessionStorage.setItem(SESSION_KEY, "true");
+        } catch (error) {}
+
+        // แสดงเครื่องหมายถูกก่อนเปลี่ยนหน้า
+        setTimeout(function() {
+            input.disabled = false;
+            button.disabled = false;
+            input.value = "";
+            message.textContent = "";
+            showDashboard();
+        }, 900);
+    }, 5000);
+});
+
+$("logoutButton").addEventListener("click", function() {
+    sessionStorage.removeItem(SESSION_KEY);
+    showLogin();
+    $("loginMessage").textContent = "ออกจากระบบแล้ว";
+});
+
+function generateRandomKey() {
+    const alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+
+    function part(length) {
+        let result = "";
+        const random = new Uint32Array(length);
+        crypto.getRandomValues(random);
+
+        for (let i = 0; i < length; i++) {
+            result += alphabet[random[i] % alphabet.length];
+        }
+
+        return result;
+    }
+
+    return "PCZ-" + part(4) + "-" + part(4) + "-" + part(4);
+}
+
+function createUniqueKey(existing) {
+    let key;
+    let attempts = 0;
+
+    do {
+        key = generateRandomKey();
+        attempts++;
+
+        if (attempts > 1000) {
+            throw new Error("ไม่สามารถสร้างคีย์ที่ไม่ซ้ำได้");
+        }
+    } while (existing.has(key));
+
+    existing.add(key);
+    return key;
+}
+
+$("generateButton").addEventListener("click", function() {
+    const count = Number($("keyCount").value);
+    const duration = Number($("keyDuration").value);
+    const message = $("generatorMessage");
+
+    if (!Number.isInteger(count) || count < 1 || count > 500) {
+        message.style.color = "#ff4444";
+        message.textContent = "กรุณาระบุจำนวนคีย์ตั้งแต่ 1 ถึง 500";
+        return;
+    }
+
+    if (!Number.isInteger(duration) || duration < 1) {
+        message.style.color = "#ff4444";
+        message.textContent = "กรุณาเลือกระยะเวลาคีย์ที่ถูกต้อง";
+        return;
+    }
+
+    const existing = new Set(keys.map(item => item.code));
+    const now = Date.now();
+
+    try {
+        const newKeys = [];
+
+        for (let i = 0; i < count; i++) {
+            newKeys.push({
+                id: crypto.randomUUID
+                    ? crypto.randomUUID()
+                    : String(now) + "-" + Math.random().toString(36).slice(2),
+                code: createUniqueKey(existing),
+                durationDays: duration,
+                createdAt: now,
+                expiresAt: now + duration * 24 * 60 * 60 * 1000,
+                disabled: false
+            });
+        }
+
+        keys = newKeys.concat(keys);
+
+        if (!saveKeys()) {
+            keys = keys.filter(item => !newKeys.includes(item));
+            return;
+        }
+
+        message.style.color = "#00ff77";
+        message.textContent = "✅ สร้างคีย์สำเร็จ " + count + " คีย์";
+    } catch (error) {
+        message.style.color = "#ff4444";
+        message.textContent = "เกิดข้อผิดพลาด: " + error.message;
+    }
+});
+
+function isExpired(item) {
+    return Date.now() >= item.expiresAt;
+}
+
+function statusText(item) {
+    if (item.disabled) return "ปิดใช้งาน";
+    if (isExpired(item)) return "หมดอายุ";
+    return "ใช้งานได้";
+}
+
+function escapeHTML(value) {
+    return String(value).replace(/[&<>"']/g, char => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+    })[char]);
+}
+
+function formatDate(value) {
+    return new Date(value).toLocaleString("th-TH");
+}
+
+function updateStats() {
+    $("totalKeys").textContent = keys.length;
+
+    $("activeKeys").textContent = keys.filter(item =>
+        !item.disabled && !isExpired(item)
+    ).length;
+}
+
+function renderKeys() {
+    const list = $("keyList");
+    const search = $("searchKey").value.trim().toLowerCase();
+
+    const filtered = keys.filter(item => {
+        const matchesSearch = item.code.toLowerCase().includes(search);
+
+        const matchesFilter =
+            currentFilter === "all" ||
+            (currentFilter === "active" && !item.disabled && !isExpired(item)) ||
+            (currentFilter === "disabled" && item.disabled);
+
+        return matchesSearch && matchesFilter;
+    });
+
+    if (filtered.length === 0) {
+        list.innerHTML = '<div class="empty">ยังไม่มีคีย์ที่ตรงกับรายการ</div>';
+        return;
+    }
+
+    list.innerHTML = filtered.map(item => {
+        const status = statusText(item);
+        const off = item.disabled || isExpired(item);
+
+        return `
+        <div class="key-item">
+            <div class="key-code">${escapeHTML(item.code)}</div>
+            <div class="key-meta">
+                ระยะเวลา: ${item.durationDays} วัน<br>
+                สร้างเมื่อ: ${formatDate(item.createdAt)}<br>
+                หมดอายุ: ${formatDate(item.expiresAt)}<br>
+                สถานะ: <span class="badge ${off ? "off" : ""}">${status}</span>
+            </div>
+            <div class="btn-row">
+                <button class="btn btn-dark" data-action="copy" data-id="${escapeHTML(item.id)}">คัดลอก</button>
+                <button class="btn ${item.disabled ? "btn-green" : "btn-dark"}"
+                    data-action="toggle" data-id="${escapeHTML(item.id)}">
+                    ${item.disabled ? "เปิดใช้งาน" : "ปิดใช้งาน"}
+                </button>
+                <button class="btn btn-red" data-action="delete" data-id="${escapeHTML(item.id)}">ลบ</button>
+            </div>
+        </div>`;
+    }).join("");
+}
+
+$("keyList").addEventListener("click", async function(event) {
+    const button = event.target.closest("button[data-action]");
+    if (!button) return;
+
+    const item = keys.find(key => key.id === button.dataset.id);
+    if (!item) return;
+
+    const action = button.dataset.action;
+
+    if (action === "copy") {
+        await copyText(item.code);
+    }
+
+    if (action === "toggle") {
+        item.disabled = !item.disabled;
+        saveKeys();
+    }
+
+    if (action === "delete") {
+        if (confirm("ต้องการลบคีย์ " + item.code + " หรือไม่?")) {
+            keys = keys.filter(key => key.id !== item.id);
+            saveKeys();
+        }
+    }
+});
+
+async function copyText(text) {
+    try {
+        await navigator.clipboard.writeText(text);
+        alert("คัดลอกสำเร็จ!");
+    } catch (error) {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
+        document.body.appendChild(textarea);
+        textarea.select();
+
+        const success = document.execCommand("copy");
+        textarea.remove();
+
+        alert(success ? "คัดลอกสำเร็จ!" : "คัดลอกไม่สำเร็จ กรุณาคัดลอกด้วยตนเอง");
+    }
+}
+
+$("copyAllButton").addEventListener("click", async function() {
+    if (keys.length === 0) {
+        alert("ยังไม่มีคีย์");
+        return;
+    }
+
+    await copyText(keys.map(item => item.code).join("\n"));
+});
+
+function downloadFile(filename, content, type) {
+    const blob = new Blob([content], { type: type });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+
+    link.href = url;
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+$("downloadButton").addEventListener("click", function() {
+    if (keys.length === 0) {
+        alert("ยังไม่มีคีย์ให้ดาวน์โหลด");
+        return;
+    }
+
+    const text = keys.map(item =>
+        item.code + " | " +
+        item.durationDays + " วัน | " +
+        statusText(item) + " | หมดอายุ " +
+        formatDate(item.expiresAt)
+    ).join("\n");
+
+    downloadFile("PCZONE-KEYS.txt", text, "text/plain;charset=utf-8");
+});
+
+$("exportBackupButton").addEventListener("click", function() {
+    downloadFile(
+        "PCZONE-BACKUP.json",
+        JSON.stringify(keys, null, 2),
+        "application/json;charset=utf-8"
+    );
+});
+
+$("clearAllButton").addEventListener("click", function() {
+    if (!keys.length) {
+        alert("ไม่มีคีย์ให้ลบ");
+        return;
+    }
+
+    if (confirm("ยืนยันลบคีย์ทั้งหมดหรือไม่? การลบนี้ย้อนกลับไม่ได้")) {
+        keys = [];
+        saveKeys();
+        $("generatorMessage").textContent = "ลบคีย์ทั้งหมดแล้ว";
+    }
+});
+
+$("searchKey").addEventListener("input", renderKeys);
+
+$("filterAll").addEventListener("click", function() {
+    currentFilter = "all";
+    renderKeys();
+});
+
+$("filterActive").addEventListener("click", function() {
+    currentFilter = "active";
+    renderKeys();
+});
+
+$("filterDisabled").addEventListener("click", function() {
+    currentFilter = "disabled";
+    renderKeys();
+});
+
+// เปิดหน้าแอดมินต่อได้ในแท็บเดิม หากมี session อยู่
+try {
+    if (sessionStorage.getItem(SESSION_KEY) === "true") {
+        showDashboard();
+    } else {
+        showLogin();
+    }
+} catch (error) {
+    showLogin();
+}
+
+</script>
+
+</body>
+</html>
